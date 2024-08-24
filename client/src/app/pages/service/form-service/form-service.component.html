@@ -1,0 +1,30 @@
+<div class="container">
+   <br>
+   <h2>{{method}} servicio</h2>
+   <br>
+   <div class="container">
+      <form [formGroup]="newForm">
+         <div class="row">
+            <div class="col">
+               <div class="form-group">
+                  <label>Nombre <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="name">
+
+               </div>
+            </div>
+
+            <div class="col">
+               <div class="form-group">
+                  <label>Descripcion <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="description">
+
+               </div>
+            </div>
+         </div>
+         <br>
+         <button type="submit" mat-raised-button color="primary" [disabled]="newForm.invalid"
+            (click)="saveService()">Guardar</button>
+         <br><br>
+      </form>
+   </div>
+</div>

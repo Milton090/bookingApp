@@ -1,0 +1,26 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=1433
+      - DB_USER=sa
+      - DB_PASSWORD=${DB_PASSWORD:-yourStrong#Passw0rd}
+      - SA_PASSWORD=${SA_PASSWORD:-yourStrong#Passw0rd}
+
+  client:
+    build: ./client
+    ports:
+      - "${CLIENT_PORT:-4200}:4200"
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD:-yourStrong#Passw0rd}"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "${DB_PORT:-1433}:1433"

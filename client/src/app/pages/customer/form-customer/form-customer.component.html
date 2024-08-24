@@ -1,0 +1,48 @@
+<div class="container">
+   <br>
+   <h2>{{method}} cliente</h2>
+   <br>
+   <div class="container">
+      <form [formGroup]="newForm">
+         <div class="row">
+            <div class="col">
+               <div class="form-group">
+                  <label>Nombre <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="name">
+
+               </div>
+            </div>
+
+            <div class="col">
+               <div class="form-group">
+                  <label>Apellido <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="lastName">
+
+               </div>
+            </div>
+         </div>
+         <br>
+         <div class="row">
+            <div class="col">
+               <div class="form-group">
+                  <label>Correo <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="email">
+
+               </div>
+            </div>
+
+            <div class="col">
+               <div class="form-group">
+                  <label>Telefono <b style="color: red;">*</b></label>
+                  <input type="text" class="form-control" formControlName="phone">
+
+               </div>
+            </div>
+         </div>
+         <br>
+         <button type="submit" mat-raised-button color="primary" [disabled]="newForm.invalid"
+            (click)="saveCustomer()">Guardar</button>
+         <br><br>
+      </form>
+   </div>
+</div>

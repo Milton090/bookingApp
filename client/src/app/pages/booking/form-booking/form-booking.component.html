@@ -1,0 +1,53 @@
+<div class="container">
+   <br>
+   <h2>{{method}} reserva</h2>
+   <br>
+   <div class="container">
+      <form [formGroup]="newForm">
+         <div class="row">
+            <div class="col">
+               <div class="form-group">
+                  <label>Cliente <b style="color: red;">*</b></label>
+                  <mat-select class="form-control" formControlName="customerId" placeholder="---SELECCIONE---">
+
+                     @for(customer of customers; track $index){
+                     <mat-option [value]="customer.id">
+                        {{ customer.name }} {{ customer.lastName }}
+                     </mat-option>
+                     }
+                  </mat-select>
+
+               </div>
+            </div>
+
+            <div class="col">
+               <div class="form-group">
+                  <label>Servicio <b style="color: red;">*</b></label>
+                  <mat-select class="form-control" formControlName="serviceId" placeholder="---SELECCIONE---">
+                     @for(service of services; track $index){
+                     <mat-option [value]="service.id">
+                        {{ service.name }}
+                     </mat-option>
+                     }
+                  </mat-select>
+               </div>
+            </div>
+         </div>
+         <br>
+         <div class="row">
+            <div class="col">
+               <div class="form-group">
+                  <label>Fecha <b style="color: red;">*</b></label>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dateBooking">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+               </div>
+            </div>
+         </div>
+         <br>
+         <button type="submit" mat-raised-button color="primary" [disabled]="newForm.invalid"
+            (click)="saveBooking()">Guardar</button>
+         <br><br>
+      </form>
+   </div>
+</div>
