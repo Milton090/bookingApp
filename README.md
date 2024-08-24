@@ -100,7 +100,7 @@ To better understand the architecture and database design of the application, re
 
 This diagram illustrates the relationships between the different entities in the database. It provides a visual representation of how the tables are connected and the nature of their relationships.
 
-![Database Relational Diagram](./architectureDiagram.jpeg)
+![Database Relational Diagram](./databaseDiagram.jpeg)
 
 #### Architecture Diagram
 
@@ -109,6 +109,8 @@ This diagram shows the overall architecture of the application, including the in
 ![Architecture Diagram](./architectureDiagram.jpeg)
 
 
-- **API Documentation**: You can find the API documentation [here](https://www.postman.com/aerospace-specialist-44844858/workspace/miltonramirezpublic/collection/33019708-7b1c2ccd-3d46-4c0f-92df-42b645af7d6f?action=share&creator=33019708) on Postman.
+### API Documentation
+
+You can find the API documentation [here](https://www.postman.com/aerospace-specialist-44844858/workspace/miltonramirezpublic/collection/33019708-7b1c2ccd-3d46-4c0f-92df-42b645af7d6f?action=share&creator=33019708) on Postman.
 
 That's it! You should now have the application running. For further adjustments or specific configuration, refer to the project’s documentation.
