@@ -1,26 +1,38 @@
 services:
   server:
     build: ./server
+    restart: always
     ports:
-      - "3000:3000"
+      - "${SERVER_PORT:-4000}:${SERVER_PORT:-4000}"
     depends_on:
       - db
     environment:
       - DB_HOST=db
       - DB_PORT=1433
       - DB_USER=sa
-      - DB_PASSWORD=${DB_PASSWORD:-yourStrong#Passw0rd}
       - SA_PASSWORD=${SA_PASSWORD:-yourStrong#Passw0rd}
+      - SERVER_PORT=${SERVER_PORT}
+      - JWT_SECRET=${JWT_SECRET:-yourJWTs3cr3t}
+      - DB_PASSWORD=${DB_PASSWORD:-yourStrong#Passw0rd}
 
   client:
     build: ./client
+    restart: always
     ports:
-      - "${CLIENT_PORT:-4200}:4200"
+      - "${CLIENT_PORT:-4200}:80"
+    environment:
+      - SERVER_PORT=${SERVER_PORT:-4000}
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
     environment:
       SA_PASSWORD: "${SA_PASSWORD:-yourStrong#Passw0rd}"
       ACCEPT_EULA: "Y"
     ports:
       - "${DB_PORT:-1433}:1433"
+    volumes:
+      - db-data:/var/opt/mssql
+
+volumes:
+  db-data:

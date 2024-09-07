@@ -14,7 +14,7 @@ export class ServiceService {
   private url!: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.urlApi + environment.serviceController;
+    this.url = environment.apiUrl + environment.serviceController;
   }
 
   getAll() {

@@ -14,7 +14,7 @@ export class AuthService {
   private url!: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.urlApi + environment.authController;
+    this.url = environment.apiUrl + environment.authController;
   }
 
   login(user: UserI) {

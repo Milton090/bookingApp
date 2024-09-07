@@ -14,7 +14,7 @@ export class CustomerService {
   private url!: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.urlApi + environment.customerController;
+    this.url = environment.apiUrl + environment.customerController;
   }
 
   getAll() {

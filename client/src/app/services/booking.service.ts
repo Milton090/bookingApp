@@ -14,7 +14,7 @@ export class BookingService {
   private url!: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.urlApi + environment.bookingController;
+    this.url = environment.apiUrl + environment.bookingController;
   }
 
   getAll() {

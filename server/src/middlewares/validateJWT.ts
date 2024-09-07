@@ -7,7 +7,7 @@ export const validateToken = async (req: Request, res: Response, next: NextFunct
    if (!token) return res.status(401).json({ success: false, msg: "Access denied" });
 
    try {
-      const validToken = verify(token, 'secretKey');
+      const validToken = verify(token, process.env.JWT_SECRET!);
 
       if (validToken) return next();
 

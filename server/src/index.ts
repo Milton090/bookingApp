@@ -7,7 +7,7 @@ import { createDatabase, createTables } from './config/createDB';
 require('dotenv').config()
 
 const app = express();
-const port = 3000;
+const port = process.env.SERVER_PORT || 5600;
 
 
 app.use(express.json());
@@ -17,13 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.listen(port, async () => {
-   console.log(`Server running on http://localhost:${port}`);
+   console.log(`Server running!! -> http://localhost:${port}/api/welcome`);
    
    const pool = await connectDB();
    await pool?.request().query(createDatabase);
    await pool?.request().query(createTables);
-   console.log('Database created successfully');
+   console.log('Connected to the database!!');
 
+});
+
+app.use('/api/welcome', (req, res) => {
+   res.send('Well done! You are connected to the server, now you can return to the frontend app');
 });
 
 
