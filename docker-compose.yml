@@ -13,15 +13,12 @@ services:
       - SA_PASSWORD=${SA_PASSWORD:-yourStrong#Passw0rd}
       - SERVER_PORT=${SERVER_PORT}
       - JWT_SECRET=${JWT_SECRET:-yourJWTs3cr3t}
-      - DB_PASSWORD=${DB_PASSWORD:-yourStrong#Passw0rd}
 
   client:
     build: ./client
     restart: always
     ports:
       - "${CLIENT_PORT:-4200}:80"
-    environment:
-      - SERVER_PORT=${SERVER_PORT:-4000}
 
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
